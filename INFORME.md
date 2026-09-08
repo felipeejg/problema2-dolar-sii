@@ -6,7 +6,7 @@ Este repositorio contiene el análisis numérico de la variación del dólar obs
 
 # Sección 6: Preguntas del error a contestar
 
-# A1. Error de representación mes a mes
+## A1. Error de representación mes a mes
 Al simular un almacenamiento de baja precisión (2 cifras significativas), el mes que quedó con el mayor error relativo al redondear fue Abril de 2022. 
 * Valor real: 815.12 CLP
 * Valor aproximado (2 cs): 820 CLP
