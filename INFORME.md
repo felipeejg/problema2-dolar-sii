@@ -67,7 +67,7 @@ Al ejecutar la operación 874.67 - 875.66:
 
 # Sección 9: Documento de entrega y conclusión final
 
-Basado estrictamente en los cálculos de propagación de error y la certidumbre matemática de los datos, se concluye lo siguiente para un plan de inversión:
+Basado en los cálculos de propagación de error y la certidumbre matemática de los datos, se concluye lo siguiente para un plan de inversión:
 
 1. ¿Cuándo conviene comprar?
 El escenario óptimo se presentó en Febrero de 2023, marcando el mínimo del período analizado (798.26 CLP). Este mínimo es completamente seguro frente a meses vecinos (como Junio 2023 con 799.87 CLP), ya que la diferencia real supera el umbral del error de representación de máquina.
