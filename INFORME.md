@@ -14,7 +14,7 @@ Al simular un almacenamiento de baja precisión (2 cifras significativas), el me
 * Error relativo: (4.88 / 815.12) * 100 = aprox. 0.6%
 Este mes encabeza el error porque su magnitud original dejó una fracción grande que la máquina "recortó" para ajustarse a las dos cifras.
 
-# A2. Evaluación entre dos puntos (una compra-venta)
+## A2. Evaluación entre dos puntos (una compra-venta)
 Simulando una inversión inicial de M = 1.000.000 CLP:
 * Compra: Febrero 2023 (Real: 798.26 | Aprox 2 cs: 800)
 * Venta: Enero 2025 (Real: 1000.76 | Aprox 2 cs: 1000)
@@ -25,7 +25,7 @@ Simulando una inversión inicial de M = 1.000.000 CLP:
 * Propagación del error: En la multiplicación y la división, los errores relativos se suman. El error relativo total de las tasas es de aproximadamente 1.47%. Al aplicar este porcentaje a la ganancia, el error absoluto arrastrado es de 3675 CLP. 
 * Resultado: La ganancia final es de 250.000 +/- 3675 CLP (Error porcentual: 1.47%).
 
-# A3. Cancelación (dos meses casi iguales)
+## A3. Cancelación (dos meses casi iguales)
 Se calculó la variación entre Diciembre de 2022 y Diciembre de 2023 utilizando 3 cifras significativas:
 * Diciembre 2022: Real 875.66 -> Aprox: 876 (Ea: 0.34)
 * Diciembre 2023: Real 874.67 -> Aprox: 875 (Ea: 0.33)
@@ -34,7 +34,7 @@ Se calculó la variación entre Diciembre de 2022 y Diciembre de 2023 utilizando
 * Resultado: Variación = -1.0 +/- 0.67 CLP (Error relativo: ~67%).
 * Conclusión: Con un margen de error tan gigante frente al resultado, no se puede afirmar con seguridad si el dólar subió o bajó. La incertidumbre casi iguala a la variación, produciéndose una cancelación catastrófica.
 
-# A4. Anualidad (variación enero - diciembre)
+## A4. Anualidad (variación enero - diciembre)
 Propagando los errores absolutos al restar Diciembre y Enero de cada año con 3 cifras significativas, el orden de los años del más confiable al menos confiable es:
 1. Año 2024: Variación aprox 74.00 +/- 0.31 CLP | Error Porcentual: 0.42%
 2. Año 2022: Variación aprox 54.00 +/- 0.39 CLP | Error Porcentual: 0.73%
@@ -42,7 +42,7 @@ Propagando los errores absolutos al restar Diciembre y Enero de cada año con 3 
 4. Año 2023: Variación aprox 49.00 +/- 0.67 CLP | Error Porcentual: 1.39%
 * ¿Qué tienen en común los años poco confiables? Los años con mayor error relativo (como 2023 y 2025) comparten la característica de tener una variación neta más pequeña en comparación con sus magnitudes absolutas. Cuando la diferencia real es pequeña, el error acumulado por los redondeos toma un peso porcentual enorme, restándole validez matemática al cálculo.
 
-# A5. Mejor compra y mejor venta
+## A5. Mejor compra y mejor venta
 * Mes más barato (Mínimo): Febrero de 2023 (798.26 CLP).
 * Mes más caro (Máximo): Enero de 2025 (1000.76 CLP).
 * Rentabilidad: Comprar en el mínimo y vender en el máximo entrega una rentabilidad bruta de casi 25%.
@@ -51,15 +51,15 @@ Propagando los errores absolutos al restar Diciembre y Enero de cada año con 3 
 
 # Sección 7: Preguntas del punto flotante
 
-# B1. Cifras significativas = mantisa corta
+## B1. Cifras significativas = mantisa corta
 Restringir un precio a 2 cifras significativas equivale lógicamente a guardarlo en un sistema con una mantisa de muy pocos bits. La mantisa es la parte de la memoria que guarda los dígitos reales del número. Si hay pocos bits, las fracciones menos significativas se truncan o redondean (pérdida de información).
 * Ejemplo con 1000.76: Si forzamos la máquina a usar solo 3 cifras significativas, el número se convierte en 1.00 x 10^3 = 1000. El error de representación es directo: 1000.76 - 1000 = 0.76 pesos que la máquina "olvidó" por falta de espacio en la mantisa.
 
-# B2. La ida y vuelta que no vuelve
+## B2. La ida y vuelta que no vuelve
 Al ejecutar el ciclo de tomar pesos, comprar dólares, y volver a venderlos por pesos utilizando el mismo tipo de cambio forzado a precisión simple (float32), no se recupera el millón exacto. 
 Esto ocurre porque la división y multiplicación sucesivas generan fracciones que exceden la capacidad de la mantisa de 32 bits (que solo almacena ~7 cifras decimales útiles). Los bits sobrantes se descartan en cada operación, acumulando un "residuo" que deriva en pérdidas o ganancias microscópicas fantasmas.
 
-# B4. Cancelación en la máquina
+## B4. Cancelación en la máquina
 Al ejecutar la operación 874.67 - 875.66:
 * En float32 el resultado arrojó -0.98999023.
 * En float64 el resultado arrojó -0.9899999999998954.
